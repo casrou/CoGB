@@ -1,0 +1,22 @@
+﻿@page
+<div id="gameboy">
+<div id="canvas-container">
+    <canvas id="gameCanvas"></canvas>
+</div>
+<div id="buttons">
+    <input type="button" id="justFillBtnDoesntDoAnything" />
+    <input type="button" id="btnUp" class="btnGame" />
+    <input type="button" id="btnRight" class="btnGame" />
+    <input type="button" id="btnDown" class="btnGame" />
+    <input type="button" id="btnLeft" class="btnGame" />
+    <input type="button" id="btnA" class="btnGame" value="A" />
+    <input type="button" id="btnB" class="btnGame" value="B" />
+    <input type="button" id="btnStart" class="btnGame" value="START" />
+    <input type="button" id="btnSelect" class="btnGame" value="SELECT" />
+    <input type="button" id="btnFps" value="FPS" />
+</div>
+</div>
+@section Scripts {
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/game.js"></script>
+}

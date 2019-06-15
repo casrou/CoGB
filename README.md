@@ -13,5 +13,9 @@ Co-op gameboy written in .NET Core and Java.
 ## Controls
 Use on-screen controls or <kbd>&uarr;</kbd>, <kbd>&larr;</kbd>, <kbd>&darr;</kbd>, <kbd>&rarr;</kbd>, <kbd>Z</kbd>, <kbd>X</kbd>, <kbd>Enter</kbd>, <kbd>Backspace</kbd> (or <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>,</kbd>, <kbd>.</kbd>, <kbd>Enter</kbd>, <kbd>Backspace</kbd>) in the browser.
 
+## Limitations
+- Sound not supported
+- Runs only GB games (not GBC or GBA)
+
 # Acknowledgments
 * [coffee-gb](https://github.com/trekawek/coffee-gb) by trekawek

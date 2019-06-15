@@ -1,5 +1,5 @@
 # CoGB
-Co-op gameboy
+Co-op gameboy written in .NET Core and Java.
 
 ![](demo.gif)
 (Only tested with Pokemon Red)
@@ -12,3 +12,6 @@ Co-op gameboy
 
 # Controls
 Use on-screen controls or <kbd>&uarr;</kbd>, <kbd>&larr;</kbd>, <kbd>&darr;</kbd>, <kbd>&rarr;</kbd>, <kbd>Z</kbd>, <kbd>X</kbd>, <kbd>Enter</kbd>, <kbd>Backspace</kbd> (or <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>,</kbd>, <kbd>.</kbd>, <kbd>Enter</kbd>, <kbd>Backspace</kbd>) in the browser.
+
+# Acknowledgments
+* [coffee-gb](https://github.com/trekawek/coffee-gb) by trekawek

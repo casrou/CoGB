@@ -58,7 +58,7 @@ gameboy.style.height = 40 /* canvas margin top */ + 100 /* custom */ + scaleToFi
 //gameboy.style.width = canvas.width * scaleCustom + 'px';
 //gameboy.style.height = canvas.height * scaleCustom + buttons.style.height + 'px';
 
-var latest = [];
+var latest;
 //var notskip = 0;
 
 //setInterval(function () {
@@ -67,34 +67,69 @@ var latest = [];
 
 connection.on("SetData", function (data) {
     var i;
-    var j;
+    //var j;
 
-    for (i = 0; i < 144; i++) {
-        for (j = 0; j < 160; j++) {
-            var color = data[i * 160 + j];
-            if (latest && latest[i * 160 + j] === color) continue;
-            switch (color) {
-                case 0:
-                    ctx.fillStyle = "#e6f8da";
-                    break;
-                case 1:
-                    ctx.fillStyle = "#99c886";
-                    break;
-                case 2:
-                    ctx.fillStyle = "#99c886";
-                    break;
-                case 3:
-                    ctx.fillStyle = "#051f2a";
-                    break;
-                default:
-                    ctx.fillStyle = "#e051f2a";
-                    break;
-            }
-            
-            ctx.fillRect(j, i, 1, 1);
-            //notskip++;
+    for (i = 0; i < data.length * 2; i++) {
+        var temp = i % data.length;
+        var row = Math.floor(i / 160);
+        var col = i % 160;
+
+        var color;
+        if (i < data.length) {
+            color = data[temp] >> 4;
+            if (latest && color === (latest[temp] >> 4)) continue;
+        } else {
+            color = data[temp] & 15;
+            if (latest && color === (latest[temp] & 15)) continue;
         }
+
+        switch (color) {
+            case 0:
+                ctx.fillStyle = "#e6f8da";
+                break;
+            case 1:
+                ctx.fillStyle = "#99c886";
+                break;
+            case 2:
+                ctx.fillStyle = "#99c886";
+                break;
+            case 3:
+                ctx.fillStyle = "#051f2a";
+                break;
+            default:
+                ctx.fillStyle = "#e051f2a";
+                break;
+        }
+
+        ctx.fillRect(col, row, 1, 1);
     }
+
+    //for (i = 0; i < 144; i++) {
+    //    for (j = 0; j < 160; j++) {
+    //        var color = data[i * 160 + j];
+    //        if (latest && latest[i * 160 + j] === color) continue;
+    //        switch (color) {
+    //            case 0:
+    //                ctx.fillStyle = "#e6f8da";
+    //                break;
+    //            case 1:
+    //                ctx.fillStyle = "#99c886";
+    //                break;
+    //            case 2:
+    //                ctx.fillStyle = "#99c886";
+    //                break;
+    //            case 3:
+    //                ctx.fillStyle = "#051f2a";
+    //                break;
+    //            default:
+    //                ctx.fillStyle = "#e051f2a";
+    //                break;
+    //        }
+            
+    //        ctx.fillRect(j, i, 1, 1);
+    //        //notskip++;
+    //    }
+    //}
 
     latest = data;
     ready = true;

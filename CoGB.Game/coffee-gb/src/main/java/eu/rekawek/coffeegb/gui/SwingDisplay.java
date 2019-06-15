@@ -43,17 +43,35 @@ public class SwingDisplay extends JPanel implements Display, Runnable {
                 getDefaultConfiguration();
         img = gfxConfig.createCompatibleImage(DISPLAY_WIDTH, DISPLAY_HEIGHT);*/
         //rgb = new int[DISPLAY_WIDTH * DISPLAY_HEIGHT];
-        srgb = new byte[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+        srgb = new byte[DISPLAY_WIDTH * DISPLAY_HEIGHT/2];
         //this.scale = scale;
     }
 
     @Override
     public void putDmgPixel(int color) {
-        srgb[i++] = (byte)color;
+
+        byte bcolor;
+        if(i > srgb.length){
+            bcolor = (byte) color;
+        } else {
+            bcolor = makeDoublePixelByte(color);
+        }
+
+        srgb[i] = bcolor;
+        i++;
+
+        //srgb[i++] = (byte)color;
         //rgb[i++] = COLORS[color];
+
+
 
         //hubConnection.send("SetPixel", i, color);
         i = i % srgb.length;
+    }
+
+    private byte makeDoublePixelByte(int color){
+        int newByte = (srgb[i] << 4) | color;
+        return (byte) newByte;
     }
 
     @Override

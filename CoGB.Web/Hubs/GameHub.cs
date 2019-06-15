@@ -9,7 +9,7 @@ namespace Emux.Core.Web.Hubs
     public class GameHub : Hub
     {
         private static string hostConnId;
-        private static sbyte[] _latest = new sbyte[160*144];
+        private static sbyte[] _latest = new sbyte[160*144/2];
         //private static int _stress = 0;
 
         public void Test(string test)
@@ -19,7 +19,7 @@ namespace Emux.Core.Web.Hubs
 
         // We use sbyte, because bytes in Java are signed
         public void SetData(sbyte[] data)
-        {            
+        {        
             //if (_stress > 8)
             //{
             //    Clients.AllExcept(hostConnId).SendAsync("SetFps");

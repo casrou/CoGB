@@ -1,6 +1,9 @@
 # CoGB
 Co-op gameboy
 
+![](demo.gif)
+(Only tested with Pokemon Red)
+
 # Run
 * Open [Emux.Core.Web.csproj](CoGB.Web/Emux.Core.Web/Emux.Core.Web.sln) in Visual Studio and start debugging
 * Open Powershell and set environment variable 

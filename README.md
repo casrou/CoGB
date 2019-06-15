@@ -1,5 +1,5 @@
 # CoGB
-Co-op gameboy written in .NET Core and Java.
+Online co-op gameboy written in .NET Core and Java.
 
 ![](demo.gif)
 (Only tested with Pokemon Red)
